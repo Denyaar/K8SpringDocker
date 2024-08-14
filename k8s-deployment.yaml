@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8springdocker
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: K8SpringDocker
+  template:
+    metadata:
+      labels:
+        app: K8SpringDocker
+    spec:
+      containers:
+        - name: k8springdocker
+          image: denyaar/k8springdocker:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
